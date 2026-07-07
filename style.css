@@ -1,0 +1,227 @@
+/*reset*/
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    height:100%;
+}
+
+body{
+    background:
+        radial-gradient(circle at top,#3a1118 0%,#12080b 45%,#050304 100%);
+    font-family:Arial,Helvetica,sans-serif;
+    color:#f5f1ed;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin: 0;
+}
+
+/* boot pan */
+
+.boot-screen{
+
+    width:min(700px,92vw);
+
+    background:linear-gradient(
+        180deg,
+        #251317,
+        #160d10
+    );
+
+    border:1px solid #5c2731;
+
+    border-radius:26px;
+
+    padding:42px;
+
+    box-shadow:
+        0 0 60px rgba(0,0,0,.65),
+        inset 0 0 25px rgba(255,90,110,.05);
+
+    text-align:center;
+
+    transition:
+        opacity .6s,
+        transform .6s;
+}
+
+/* hidden after initialize */
+
+.boot-screen.hide{
+
+    opacity:0;
+
+    transform:translateY(-25px);
+
+    pointer-events:none;
+
+}
+
+/* txt */
+
+.boot-subtitle{
+
+    color:#b89ea4;
+
+    letter-spacing:4px;
+
+    font-size:12px;
+
+    margin-bottom:18px;
+
+}
+
+.boot-title{
+
+    font-size:58px;
+
+    font-weight:900;
+
+    line-height:.9;
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+
+}
+
+.boot-title span{
+
+    display:block;
+
+}
+
+/* sidebar */
+
+.progress{
+
+    margin:34px auto;
+
+    width:100%;
+
+    height:10px;
+
+    background:#0d0809;
+
+    border-radius:999px;
+
+    border:1px solid #47222a;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    width:100%;
+
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            #731c2a,
+            #bd4152,
+            #ef7587
+        );
+
+}
+
+/* stat */
+
+.status{
+
+    margin-top:18px;
+
+    font-size:12px;
+
+    color:#b8a4a7;
+
+    letter-spacing:2px;
+
+    line-height:2;
+
+}
+
+/* button */
+
+.initialize{
+
+    margin-top:36px;
+
+    display:inline-block;
+
+    padding:16px 46px;
+
+    border:none;
+
+    border-radius:999px;
+
+    cursor:pointer;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    letter-spacing:3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #7d1f2d,
+            #c74558
+        );
+
+    box-shadow:
+        0 0 20px rgba(199,69,88,.35);
+
+    transition:
+        transform .2s,
+        box-shadow .2s;
+
+}
+
+.initialize:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 0 28px rgba(199,69,88,.5);
+
+}
+
+/* dash */
+
+.dashboard{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:opacity .8s;
+
+    overflow-y:auto;
+
+}
+
+.dashboard.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
