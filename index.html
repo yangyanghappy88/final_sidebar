@@ -3,79 +3,25 @@
 
 <head>
 
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 
-<title>ANHS System</title>
+    <title>ANHS Student Portal</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
-
 
 <body>
 
 
-<!-- sys screen -->
+    <div class="dashboard" id="dashboard">
 
-<div class="boot-screen" id="bootScreen">
+        <!-- sidebar -->
 
-
-    <div class="boot-subtitle">
-        ACADEMY SECURITY TERMINAL
-    </div>
-
-
-    <div class="boot-title">
-        <span>ENTER</span>
-    </div>
-
-
-
-    <div class="progress">
-
-        <div class="progress-fill"></div>
-
-    </div>
-
-
-
-    <div class="status">
-
-        NODE : ONLINE<br>
-
-        OAA CONNECTION : VERIFIED<br>
-
-        DATABASE : STANDBY<br>
-
-        SECURITY LEVEL : AUTHORIZED
-
-    </div>
-
-
-
-    <button class="initialize" id="initializeButton">
-
-        INITIALIZE SYSTEM
-
-    </button>
-
-
-</div>
-
-
-
-
-
-<!-- main dash -->
-
-
-<div class="dashboard" id="dashboard">
-
-
-    <!--sidebar code-->
-<div style="max-width: 100%; margin: auto; padding: 16px; background: linear-gradient(180deg,#080607,#0d090b); border: 1px solid #38191e; border-radius: 28px; font-family: Arial,Helvetica,sans-serif; color: #f5f1ed; box-shadow: 0 18px 55px rgba(0,0,0,.65); box-sizing: border-box; overflow: hidden;">
+        <div style="max-width: 100%; margin: auto; padding: 16px; background: linear-gradient(180deg,#080607,#0d090b); border: 1px solid #38191e; border-radius: 28px; font-family: Arial,Helvetica,sans-serif; color: #f5f1ed; box-shadow: 0 18px 55px rgba(0,0,0,.65); box-sizing: border-box; overflow: hidden;">
 <div style="background: linear-gradient(180deg,#231418,#150d10); border: 1px solid #542730; border-radius: 22px; padding: 18px;">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;">
 <div style="flex: 1; min-width: 0;">
@@ -268,15 +214,147 @@
 <marquee direction="up" scrollamount="2" style="height: 240px; font: 700 12px monospace; color: #ffc9df;"> 🥛 MILK MOCHI ............... PP;238<br /><br />🍓 ICHIGO DAIFUKU ........... PP;298<br /><br />🫘 RED BEAN DAIFUKU ......... PP;228<br /><br />🍵 MATCHA DAIFUKU ........... PP;248<br /><br />🌸 SAKURA MOCHI ............. PP;288<br /><br />🍡 MITARASHI DANGO .......... PP;220<br /><br />🍡 KINAKO DANGO ............. PP;210<br /><br />🟤 WARABI MOCHI ............. PP;258<br /><br />🥞 DORAYAKI ................. PP;248<br /><br />🐟 TAIYAKI .................. PP;280<br /><br />🌰 MONAKA ................... PP;268<br /><br />🍵 MATCHA YOKAN ............. PP;320<br /><br />🫘 MANJU .................... PP;230<br /><br />🥮 KUSA MOCHI ............... PP;248<br /><br />🍯 HONEY MOCHI .............. PP;268<br /><br />🥥 COCONUT MOCHI ............ PP;278<br /><br />🍑 PEACH MOCHI .............. PP;288<br /><br />📈 MOCHI INDEX .............. +3.6%<br /><br />🍡 SWEET FUTURES ............ BULLISH<br /><br /></marquee></div>
 </div>
 
-
-</div>
-
+    </div>
 
 
 
+    <!-- sec -->
 
-<script src="script.js"></script>
+    <div class="door-container" id="doors">
 
+        <div class="door left-door">
+
+            <div class="door-panel"></div>
+
+        </div>
+
+        <div class="door right-door">
+
+            <div class="door-panel"></div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- portal -->
+
+    <div class="portal" id="portal">
+
+        <div class="portal-window">
+
+            <div class="header">
+
+                <div class="logo">
+
+                    ANHS
+
+                </div>
+
+                <div class="school-info">
+
+                    <h1>Academia National High School</h1>
+
+                    <p>Student Information Portal</p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="divider"></div>
+
+
+
+            <div class="system-title">
+
+                AUTHORIZED ACCESS
+
+            </div>
+
+
+
+            <div class="status-box">
+
+                <div class="status-line">
+
+                    <span class="icon pending" id="icon1"></span>
+
+                    <span id="text1">
+
+                        Establishing secure connection...
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="status-line">
+
+                    <span class="icon pending" id="icon2"></span>
+
+                    <span id="text2">
+
+                        Loading student modules...
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="status-line">
+
+                    <span class="icon pending" id="icon3"></span>
+
+                    <span id="text3">
+
+                        Verifying interface integrity...
+
+                    </span>
+
+                </div>
+
+
+
+                <div class="status-line">
+
+                    <span class="icon pending" id="icon4"></span>
+
+                    <span id="text4">
+
+                        Preparing dashboard...
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer">
+
+                <button
+                    class="access-btn"
+                    id="accessButton">
+
+                    ACCESS PORTAL
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
 
 </body>
 
