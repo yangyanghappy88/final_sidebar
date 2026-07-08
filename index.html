@@ -5,10 +5,9 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ANHS Student Portal</title>
+    <title>ANHS OS</title>
 
     <link rel="stylesheet" href="style.css">
 
@@ -16,12 +15,12 @@
 
 <body>
 
+    <!-- sidebar -->
 
-    <div class="dashboard" id="dashboard">
+    <div class="dashboard">
 
         <!-- sidebar -->
-
-        <div style="max-width: 100%; margin: auto; padding: 16px; background: linear-gradient(180deg,#080607,#0d090b); border: 1px solid #38191e; border-radius: 28px; font-family: Arial,Helvetica,sans-serif; color: #f5f1ed; box-shadow: 0 18px 55px rgba(0,0,0,.65); box-sizing: border-box; overflow: hidden;">
+         <div style="max-width: 100%; margin: auto; padding: 16px; background: linear-gradient(180deg,#080607,#0d090b); border: 1px solid #38191e; border-radius: 28px; font-family: Arial,Helvetica,sans-serif; color: #f5f1ed; box-shadow: 0 18px 55px rgba(0,0,0,.65); box-sizing: border-box; overflow: hidden;">
 <div style="background: linear-gradient(180deg,#231418,#150d10); border: 1px solid #542730; border-radius: 22px; padding: 18px;">
 <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;">
 <div style="flex: 1; min-width: 0;">
@@ -217,132 +216,87 @@
     </div>
 
 
+    <!-- doors -->
 
-    <!-- sec -->
+    <div class="doors" id="doors">
 
-    <div class="door-container" id="doors">
+        <div class="door left"></div>
 
-        <div class="door left-door">
-
-            <div class="door-panel"></div>
-
-        </div>
-
-        <div class="door right-door">
-
-            <div class="door-panel"></div>
-
-        </div>
+        <div class="door right"></div>
 
     </div>
 
 
+    <!-- boot -->
 
-    <!-- portal -->
+    <div class="boot" id="boot">
 
-    <div class="portal" id="portal">
+        <div class="window">
 
-        <div class="portal-window">
+            <div class="top">
 
-            <div class="header">
+                <div>
 
-                <div class="logo">
+                    <div class="logo">
 
-                    ANHS
+                        ANHS OS
 
-                </div>
+                    </div>
 
-                <div class="school-info">
+                    <div class="jp">
 
-                    <h1>Academia National High School</h1>
+                        ADVANCED NURTURING HIGH SCHOOL<br>
+                        高度育成高等学校
 
-                    <p>Student Information Portal</p>
-
-                </div>
-
-            </div>
-
-
-
-            <div class="divider"></div>
-
-
-
-            <div class="system-title">
-
-                AUTHORIZED ACCESS
-
-            </div>
-
-
-
-            <div class="status-box">
-
-                <div class="status-line">
-
-                    <span class="icon pending" id="icon1"></span>
-
-                    <span id="text1">
-
-                        Establishing secure connection...
-
-                    </span>
+                    </div>
 
                 </div>
 
+                <div class="badge">
 
-
-                <div class="status-line">
-
-                    <span class="icon pending" id="icon2"></span>
-
-                    <span id="text2">
-
-                        Loading student modules...
-
-                    </span>
-
-                </div>
-
-
-
-                <div class="status-line">
-
-                    <span class="icon pending" id="icon3"></span>
-
-                    <span id="text3">
-
-                        Verifying interface integrity...
-
-                    </span>
-
-                </div>
-
-
-
-                <div class="status-line">
-
-                    <span class="icon pending" id="icon4"></span>
-
-                    <span id="text4">
-
-                        Preparing dashboard...
-
-                    </span>
+                    LEVEL II
 
                 </div>
 
             </div>
 
+            <div class="line"></div>
 
+            <div class="content">
 
-            <div class="footer">
+                <div class="title">
+
+                    academy terminal
+
+                </div>
+
+                <div class="system">
+
+                    INITIALIZING<br>
+                    STUDENT TERMINAL
+
+                </div>
+
+                <div class="progress">
+
+                    <div
+                        class="fill"
+                        id="fill">
+                    </div>
+
+                </div>
+
+                <div
+                    class="log"
+                    id="log">
+
+                </div>
 
                 <button
-                    class="access-btn"
-                    id="accessButton">
+                    class="enter"
+                    id="enter">
 
-                    ACCESS PORTAL
+                    ENTER ANHS
 
                 </button>
 
@@ -351,8 +305,6 @@
         </div>
 
     </div>
-
-
 
     <script src="script.js"></script>
 

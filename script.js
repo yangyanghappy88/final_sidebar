@@ -1,92 +1,106 @@
-// element
+const enter = document.getElementById("enter");
 
-const button = document.getElementById("accessButton");
+const fill = document.getElementById("fill");
 
-const portal = document.getElementById("portal");
+const log = document.getElementById("log");
+
+const boot = document.getElementById("boot");
 
 const doors = document.getElementById("doors");
 
-const checks = [
 
-    {
-        icon: document.getElementById("icon1"),
-        text: document.getElementById("text1"),
-        done: "Secure connection established."
-    },
+/* system messages */
 
-    {
-        icon: document.getElementById("icon2"),
-        text: document.getElementById("text2"),
-        done: "Student modules loaded."
-    },
+const messages = [
 
-    {
-        icon: document.getElementById("icon3"),
-        text: document.getElementById("text3"),
-        done: "Interface integrity verified."
-    },
+    "connecting to academy network...",
 
-    {
-        icon: document.getElementById("icon4"),
-        text: document.getElementById("text4"),
-        done: "Dashboard ready."
-    }
+    "verifying student credentials...",
+
+    "synchronizing class points...",
+
+    "loading OAA framework...",
+
+    "accessing academy registry...",
+
+    "loading command modules...",
+
+    "preparing ANHS operating system...",
+
+    "initialization complete."
 
 ];
 
-// delay
+
+/* delay */
 
 function wait(ms){
 
-    return new Promise(resolve => setTimeout(resolve, ms));
+    return new Promise(resolve => {
+
+        setTimeout(resolve, ms);
+
+    });
 
 }
 
-// boot seq
 
-async function bootSequence(){
+/* boot */
 
-    button.disabled = true;
+enter.addEventListener("click", async () => {
 
-    button.textContent = "INITIALIZING...";
 
-    for(const item of checks){
+    enter.disabled = true;
 
-        item.icon.classList.remove("pending");
+    enter.textContent = "ACCESSING";
 
-        item.icon.classList.add("loading");
 
-        await wait(900);
+    log.innerHTML = "";
 
-        item.icon.classList.remove("loading");
 
-        item.icon.classList.add("complete");
+    for(let i = 0; i < messages.length; i++){
 
-        item.text.textContent = item.done;
 
-        await wait(300);
+        fill.style.width =
+            ((i + 1) / messages.length) * 100 + "%";
+
+
+        log.innerHTML +=
+            "> " + messages[i] + "<br>";
+
+
+        log.scrollTop =
+            log.scrollHeight;
+
+
+        await wait(650);
+
 
     }
 
+
     await wait(700);
 
-    portal.classList.add("hide");
 
-    await wait(500);
+    /* hide terminal */
+
+    boot.classList.add("hide");
+
+
+    await wait(700);
+
+
+    /* open doors */
 
     doors.classList.add("open");
 
+
     await wait(1400);
 
-    // Remove doors after opening
 
-    doors.style.display = "none";
+    boot.remove();
 
-    // Remove portal completely
-
-    portal.style.display = "none";
-
-}
+    doors.remove();
 
 
-button.addEventListener("click", bootSequence);
+});
