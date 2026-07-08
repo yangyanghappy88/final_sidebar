@@ -1,147 +1,274 @@
+/* elements */
+
 const enter = document.getElementById("enter");
 
-const fill = document.getElementById("fill");
-
 const log = document.getElementById("log");
+
+const fill = document.getElementById("fill");
 
 const boot = document.getElementById("boot");
 
 const doors = document.getElementById("doors");
 
-const status = document.getElementById("status");
 
-const particles = document.querySelector(".particles");
+/* boot data */
 
-
-/* boot */
-
-const lines = [
+const messages = [
 
     "academy node ............ online",
 
     "secure connection ....... established",
 
-    "decrypting registry ..... complete",
+    "student database ........ connected",
 
-    "loading student records . complete",
+    "decrypting records ...... complete",
 
-    "syncing class points .... complete",
+    "oaa framework ........... synchronized",
 
-    "loading oaa framework ... complete",
+    "security level .......... ii",
 
-    "verifying permissions ... level ii",
+    "command modules ......... loaded",
 
-    "system ready."
+    "anhs system ............. ready"
 
 ];
 
 
-/* wait */
+const hex = [
+
+    "0xA41F93",
+
+    "0x7C821D",
+
+    "0xF42B88",
+
+    "0x19AC52",
+
+    "0xE91D40"
+
+];
+
+
+/* settings */
+
+let bootFinished = false;
+
+
+/* delay */
 
 function wait(ms){
 
-    return new Promise(resolve=>setTimeout(resolve,ms));
+    return new Promise(resolve=>{
+
+        setTimeout(resolve,ms);
+
+    });
 
 }
 
 
-/* type */
+/* typing */
 
-async function type(text){
+async function typeLine(text){
 
-    const row=document.createElement("div");
+    const line=document.createElement("div");
 
-    log.appendChild(row);
+    log.appendChild(line);
 
-    for(const c of text){
 
-        row.textContent+=c;
+    for(let char of text){
 
-        await wait(18);
+        line.textContent+=char;
+
+        await wait(20);
 
     }
+
 
     log.scrollTop=log.scrollHeight;
 
 }
 
 
-/* particles */
+/* fake hex */
 
-function makeParticle(){
+function randomHex(){
 
-    const p=document.createElement("div");
-
-    p.className="particle";
-
-    p.style.left=Math.random()*100+"vw";
-
-    p.style.animationDuration=
-        5+Math.random()*5+"s";
-
-    p.style.animationDelay=
-        Math.random()*2+"s";
-
-    particles.appendChild(p);
-
-    setTimeout(()=>{
-
-        p.remove();
-
-    },10000);
+    return hex[
+        Math.floor(
+            Math.random()*hex.length
+        )
+    ];
 
 }
 
-setInterval(makeParticle,220);
 
+/* boot sequence */
 
-/* boot */
-
-enter.addEventListener("click",async()=>{
+async function startBoot(){
 
     enter.disabled=true;
 
-    enter.textContent="initializing...";
+    enter.textContent="loading";
+
 
     log.innerHTML="";
 
-    fill.style.width="0%";
 
-    status.textContent="booting academy terminal";
+    for(let i=0;i<messages.length;i++){
 
-    for(let i=0;i<lines.length;i++){
 
-        await type("> "+lines[i]);
+        await typeLine(
+
+            "> "+messages[i]
+
+        );
+
+
+        await wait(150);
+
+
+        if(i%2===0){
+
+            await typeLine(
+
+                "  "+randomHex()
+
+            );
+
+        }
+
 
         fill.style.width=
-            ((i+1)/lines.length)*100+"%";
 
-        status.textContent=
-            Math.round(((i+1)/lines.length)*100)
-            +"% loaded";
+            ((i+1)/messages.length)*100+"%";
 
-        await wait(180);
+
+        await wait(250);
 
     }
 
-    await wait(500);
 
-    status.textContent="access granted";
+    bootFinished=true;
 
-    enter.textContent="welcome";
+
+    enter.disabled=false;
+
+    enter.textContent="initialize system";
+
+
+}
+
+window.addEventListener(
+
+    "load",
+
+    ()=>{
+
+        startBoot();
+
+    }
+
+);
+
+/* particles */
+
+function createParticles(){
+
+    const amount = 40;
+
+
+    for(let i=0;i<amount;i++){
+
+        const particle=document.createElement("div");
+
+
+        particle.className="particle";
+
+
+        particle.style.left =
+
+            Math.random()*100+"vw";
+
+
+        particle.style.top =
+
+            Math.random()*100+"vh";
+
+
+        particle.style.animationDelay =
+
+            Math.random()*3+"s";
+
+
+        document.body.appendChild(particle);
+
+
+        setTimeout(()=>{
+
+            particle.remove();
+
+        },4000);
+
+    }
+
+}
+
+
+/* shutdown */
+
+async function shutdown(){
+
+    enter.disabled=true;
+
+    enter.textContent="access granted";
+
 
     await wait(700);
 
+
     boot.classList.add("hide");
 
-    await wait(250);
+
+    createParticles();
+
+
+    await wait(900);
+
 
     doors.classList.add("open");
 
-    await wait(1500);
+
+    await wait(1600);
+
 
     boot.remove();
 
     doors.remove();
 
-});
+
+}
+
+
+/* button */
+
+enter.addEventListener(
+
+    "click",
+
+    ()=>{
+
+
+        if(!bootFinished){
+
+            return;
+
+        }
+
+
+        shutdown();
+
+
+    }
+
+);

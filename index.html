@@ -19,6 +19,12 @@
 
 <body>
 
+    <div class="scanlines"></div>
+
+    <div class="particles"></div>
+
+    <div class="vignette"></div>
+
     <!-- sidebar -->
 
     <div class="dashboard">
@@ -229,89 +235,71 @@
 
     <!-- doors -->
 
-    <div
-        class="doors"
-        id="doors">
+<div class="doors" id="doors">
 
-        <div class="scanBeam"></div>
+    <div class="center-line"></div>
 
-        <div class="center"></div>
+    <div class="scan-beam"></div>
 
-        <div class="door left"></div>
+    <div class="door left"></div>
 
-        <div class="door right"></div>
+    <div class="door right"></div>
 
-    </div>
+</div>
 
 
-    <!-- boot -->
 
-    <div
-        class="boot"
-        id="boot">
 
-        <div class="window">
+    <div class="boot" id="boot">
 
-            <div class="logo">
+    <div class="boot-screen">
 
-                ANHS
+        <div class="main-title">
+            ANHS
+        </div>
 
-            </div>
+        <div class="sub-title">
+            SYSTEM
+        </div>
 
-            <div class="system">
 
-                OPERATING<br>
-                SYSTEM
+        <div class="boot-line"></div>
 
-            </div>
 
-            <div class="line"></div>
+        <div class="terminal" id="log">
 
-            <div class="content">
+        </div>
 
-                <div class="title">
 
-                    academy terminal
+        <div class="complete">
 
-                </div>
+            initialization complete
 
-                <div
-                    class="log"
-                    id="log">
+        </div>
 
-                </div>
 
-                <div class="progress">
+        <div class="boot-progress">
 
-                    <div
-                        class="fill"
-                        id="fill">
-
-                    </div>
-
-                </div>
-
-                <button
-                    class="enter"
-                    id="enter">
-
-                    initialize system
-
-                </button>
-
-                <div
-                    class="status"
-                    id="status">
-
-                    awaiting authorization
-
-                </div>
-
+            <div
+                class="boot-fill"
+                id="fill">
             </div>
 
         </div>
 
+
+        <button
+            class="initialize"
+            id="enter">
+
+            initialize system
+
+        </button>
+
+
     </div>
+
+</div>
 
 
     <script src="script.js"></script>
